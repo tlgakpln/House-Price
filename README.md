@@ -1,6 +1,9 @@
 # House-Price
 You should use Python 3.8>
 
+You can get or read dataframes 
+> dfs folder
+
 open terminal and run it
   > pip install -r requirements.txt
 
