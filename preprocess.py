@@ -5,7 +5,6 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 from config import configs
 
 
-# Analyze and handle missing data
 def handle_missing_data(data):
     imputer = SimpleImputer(strategy='mean')
     data_filled = imputer.fit_transform(data)
@@ -13,7 +12,6 @@ def handle_missing_data(data):
     return data_filled
 
 
-# Encode categorical data using One-Hot Encoding
 def one_hot_encode(data, categorical_columns):
     encoder = OneHotEncoder(drop='first', sparse=False)
     encoded_data = encoder.fit_transform(data[categorical_columns])
@@ -24,7 +22,6 @@ def one_hot_encode(data, categorical_columns):
     return data
 
 
-# Scale data using StandardScaler
 def scale_data(data, numeric_columns):
     scaler = StandardScaler()
     scaled_data = scaler.fit_transform(data[numeric_columns])
