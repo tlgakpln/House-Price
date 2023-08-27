@@ -15,13 +15,11 @@ from xgboost import XGBRegressor
 from catboost import CatBoostRegressor
 import matplotlib.pyplot as plt
 
-# Load your data
 data = preprocess.main()
 # Define X (features) and y (target)
 X = data.drop('SalePrice', axis=1)
 y = data['SalePrice']
 
-# Split data into train and test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Define models with their respective hyperparameter search space
@@ -34,10 +32,7 @@ models = [
     ("CatBoost", CatBoostRegressor(verbose=False), {'n_estimators': [100, 200]})
 ]
 
-# Initialize results list
 results = []
-
-# Initialize best test R2 score and best model
 best_test_r2 = float('-inf')
 best_model = None
 
